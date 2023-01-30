@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State var year = 2023
-    @State var imageNum = 3
+    @State var imageArray = ["RAT", "OX", "TIGER", "RABBIT", "DRAGON", "SNAKE", "HORSE", "GOAT", "MONKEY", "ROOSTER", "DOG", "PIG"]
+    @State var arrayNum = 3
     var body: some View {
         VStack {
             Text(String(year))
@@ -19,19 +20,24 @@ struct ContentView: View {
             
             Spacer()
             
-            Image("image"+String(imageNum))
+            Image(imageArray[arrayNum])
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.accentColor)
+            
+            Text(imageArray[arrayNum])
+                .fontWeight(.black)
+                .font(.largeTitle)
+                .foregroundColor(.black)
             
             Spacer()
             
             HStack{
                 Button{
                     year-=1
-                    imageNum-=1
-                    if imageNum == -1{
-                        imageNum = 11
+                    arrayNum-=1
+                    if arrayNum == -1{
+                        arrayNum = 11
                     }
                 }
             label:{
@@ -42,9 +48,9 @@ struct ContentView: View {
                 
                 Button{
                     year+=1
-                    imageNum+=1
-                    if imageNum == 12{
-                        imageNum = 0
+                    arrayNum+=1
+                    if arrayNum == 12{
+                        arrayNum = 0
                     }
                 }
             label:{
