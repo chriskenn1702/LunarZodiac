@@ -27,23 +27,30 @@ struct ContentView: View {
             Spacer()
             
             HStack{
-                Button("<"){
+                Button{
                     year-=1
                     imageNum-=1
                     if imageNum == -1{
                         imageNum = 11
                     }
                 }
+            label:{
+                Image(systemName: "chevron.left")
+            }
                 
                 Spacer()
                 
-                Button(">"){
+                Button{
                     year+=1
                     imageNum+=1
                     if imageNum == 12{
                         imageNum = 0
                     }
                 }
+            label:{
+                Image(systemName: "chevron.right")
+            }
+                
             }
             .buttonStyle(.borderedProminent)
             .tint(.red)
